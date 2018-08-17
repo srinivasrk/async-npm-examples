@@ -20,6 +20,17 @@ var square = function (num, doneCallback) {
   return doneCallback(null);
 };
 
+var amendString = function(str, doneCallback) {
+  str = str + "woot"
+  doneCallback(null, str)
+}
+
 async.each([2, 4], square, function(err) {
   console.log("finished")
+})
+
+
+async.map(['file1', 'file2'], amendString, function(err, results) {
+  console.log("done map")
+  console.log(results)
 })
